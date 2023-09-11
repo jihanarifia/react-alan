@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import alanBtn from "@alan-ai/alan-sdk-web";
+import Home from "./pages/Home";
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Array from "./pages/array";
+import LinkedList from "./pages/linkedlist";
+import { Stack } from "@mui/material";
+import Queue from "./pages/queue";
+import Tree from "./pages/tree";
+import Graph from "./pages/graph";
 
-function App() {
+const App = () => {
+  useEffect(() => {
+    alanBtn({
+      key: "6981aac1c439beebba78b29f3941352b2e956eca572e1d8b807a3e2338fdd0dc/stage",
+      onCommand: ({ command, category }) => {
+        console.log(category);
+        if (command === "home") {
+          window.location.replace("/");
+        } else if (command === "goto") {
+          window.location.replace("/read/" + category);
+        }
+      },
+    });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route path="/read/array" element={<Array />} />
+        <Route path="/read/linkedlist" element={<LinkedList />} />
+        <Route path="/read/stack" element={<Stack />} />
+        <Route path="/read/queue" element={<Queue />} />
+        <Route path="/read/tree" element={<Tree />} />
+        <Route path="/read/graph" element={<Graph />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
