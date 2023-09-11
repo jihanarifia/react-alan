@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from "react";
-import Grid from "@mui/material/Grid";
 import { Link } from "react-router-dom";
 import "../App.css";
 
 const Home = () => {
   return (
     <div style={{ marginTop: "5%", marginLeft: "10%" }}>
-      <p pAlign="center" variant="h2" component="h3">
-        Try AI Assistance with Alan AI in react
-      </p>
-      <p pAlign="center" variant="h5" component="h3">
+      <h1>Try AI Assistance with Alan AI in react</h1>
+      <h3 pAlign="center" variant="h5" component="h3">
         Try saying "Open page"
-      </p>
+      </h3>
 
       <div>
         <Link to={"/read/array"} className="p">
@@ -41,7 +38,7 @@ const Home = () => {
         </Link>
         <Link to={"/read/graph"} className="p">
           <p variant="h5" component="h5">
-            Tree
+            Graph
           </p>
         </Link>
       </div>

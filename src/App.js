@@ -5,10 +5,10 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Array from "./pages/array";
 import LinkedList from "./pages/linkedlist";
-import { Stack } from "@mui/material";
 import Queue from "./pages/queue";
 import Tree from "./pages/tree";
 import Graph from "./pages/graph";
+import Stack from "./pages/stack";
 
 const App = () => {
   useEffect(() => {
